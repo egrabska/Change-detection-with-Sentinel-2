@@ -19,6 +19,7 @@ as.vector(sort(sapply(names(s2_list), function(x) {
 s2_download(s2_list[c(1,2,4)], outdir = "d:/07_Paper3")
 
 
+
 #-------------search and download data using getSpatialData-------------
 library(getSpatialData)
 library(raster)
@@ -44,5 +45,7 @@ getSentinel_data(dane)
 setwd("path")
 zips = list.files(pattern = "*.zip")
 lapply(zips,unzip)
+
+
 
 
