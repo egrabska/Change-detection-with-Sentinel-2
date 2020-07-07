@@ -14,7 +14,7 @@ RFclassification = function(x,y,z){
   training_set = subset(ref, split == TRUE)
   validation_set = subset(ref, split == FALSE)
   rf_grid = expand.grid(mtry = c(1,2,3,5,10)) #setting different parameters of mtry
-  classification = superClass(stack(x), training_set, validation_set, responseCol = "spruce__53",
+  classification = superClass(stack(x), training_set, validation_set, responseCol = "classname",
                     model = "rf", mode = "classification", tuneGrid = rf_grid, ntree =500)
   writeRaster(classification$map, paste(z, "classification_RF.tif", sep=""), overwrite = TRUE) #saving classification map
   write.csv(classification$validation$performance$table, paste(z, "table_RF.csv", sep="")) #saving confusion matrix
